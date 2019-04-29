@@ -12745,7 +12745,7 @@
     all_files:
     - /etc/audit/rules.d/privileged.rules
   when:
-  - find_delete_module.matched == 0
+  - find_delete_module.matched is defined and find_delete_module.matched == 0
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
   - medium_severity | bool
@@ -12774,7 +12774,7 @@
     all_files:
     - '{{ find_delete_module.files | map(attribute=''path'') | list | first }}'
   when:
-  - find_delete_module.matched > 0
+  - find_delete_module.matched is defined and find_delete_module.matched > 0
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
   - medium_severity | bool
@@ -12981,7 +12981,7 @@
     all_files:
     - /etc/audit/rules.d/privileged.rules
   when:
-  - find_init_module.matched == 0
+  - find_init_module.matched is defined and find_init_module.matched == 0
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
   - medium_severity | bool
@@ -13010,7 +13010,7 @@
     all_files:
     - '{{ find_init_module.files | map(attribute=''path'') | list | first }}'
   when:
-  - find_init_module.matched > 0
+  - find_init_module.matched is defined and find_init_module.matched > 0
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
   - medium_severity | bool
