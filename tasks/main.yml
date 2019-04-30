@@ -12835,7 +12835,7 @@
     state: present
     create: true
   when:
-  - audit_arch == 'b64'
+  - audit_arch is defined and audit_arch == 'b64'
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
   - medium_severity | bool
@@ -12894,7 +12894,7 @@
     line: -a always,exit -F arch=b64 -S delete_module -k module-change
     create: true
   when:
-  - audit_arch == 'b64'
+  - audit_arch is defined and audit_arch == 'b64'
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
   - medium_severity | bool
@@ -13071,7 +13071,7 @@
     state: present
     create: true
   when:
-  - audit_arch == 'b64'
+  - audit_arch is defined and audit_arch == 'b64'
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
   - medium_severity | bool
@@ -13130,7 +13130,7 @@
     line: -a always,exit -F arch=b64 -S init_module -k module-change
     create: true
   when:
-  - audit_arch == 'b64'
+  - audit_arch is defined and audit_arch == 'b64'
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
   - medium_severity | bool
