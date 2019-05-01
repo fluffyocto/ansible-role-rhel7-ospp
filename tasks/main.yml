@@ -21910,6 +21910,7 @@
     option: id_provider
     value: files
   when:
+  - test_grep_domain.stdout is defined
   - test_grep_domain.stdout | length < 1
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
@@ -21993,6 +21994,7 @@
     option: id_provider
     value: files
   when:
+  - test_grep_domain.stdout is defined
   - test_grep_domain.stdout | length < 1
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
@@ -22077,6 +22079,7 @@
     option: id_provider
     value: files
   when:
+  - test_grep_domain.stdout is defined
   - test_grep_domain.stdout | length < 1
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - sssd_memcache_timeout | bool
@@ -22161,6 +22164,7 @@
     option: id_provider
     value: files
   when:
+  - test_grep_domain.stdout is defined
   - test_grep_domain.stdout | length < 1
   - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
   - no_reboot_needed | bool
